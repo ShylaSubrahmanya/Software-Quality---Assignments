@@ -13,8 +13,9 @@ public class Gumball {
         hashmap.put("quater", 25);
         hashmap.put("dime", 10);
         hashmap.put("nickle", 5);
-        hashmap.put("red", 1);
-        hashmap.put("yellow", 2);
+        hashmap.put("red", -1); // giving negative values here, so that it will not be considered as a valid
+                                // coin
+        hashmap.put("yellow", -2);
 
         Scanner gumColor = new Scanner(System.in); // Takes the color of the Gumball
         Scanner gumCount = new Scanner(System.in); // takes the count of the Gumball
