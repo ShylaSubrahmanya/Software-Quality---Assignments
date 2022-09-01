@@ -2,6 +2,7 @@
 
 ### Example Output
 
+```
 ---------MENU---------
 Red Gumball------$0.05
 Yellow Gumball---$0.10
@@ -61,5 +62,5 @@ Yellow Gumball---$0.10
 > > ---------CHANGE DISPENSED: $0.10-----------
 > > 0 quarter(s)
 > > 1 dime(s)
-
-## 0 nickel(s)
+> > 0 nickel(s)
+```
