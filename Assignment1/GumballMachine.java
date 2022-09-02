@@ -1,3 +1,4 @@
+// package Assignment1;
 class GumballMachine {
     public int balance;
     public int changeVal;

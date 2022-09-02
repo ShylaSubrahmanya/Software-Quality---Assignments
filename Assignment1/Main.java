@@ -1,3 +1,5 @@
+// package Assignment1;
+
 import java.util.Scanner;
 
 public class Main {
@@ -10,16 +12,32 @@ public class Main {
         System.out.println(
                 "---------MENU---------\nRed Gumball------$0.05\nYellow Gumball---$0.10\n----------------------");
 
-        System.out.println(
-                ">> Enter how many QUARTERS, DIMES, and NICKELS you would like to insert, respectively.\n>> Please separate values by commas.\n>> EXAMPLE INPUT: 1, 3, 5");
+        boolean insertion = false;
+        int quarters = -1;
+        int dimes = -1;
+        int nickels = -1;
+        insertingCoins: while (!insertion) {
+            System.out.println(
+                    ">> Enter how many QUARTERS, DIMES, and NICKELS you would like to insert, respectively.\n>> Please separate values by commas.\n>> EXAMPLE INPUT: 1, 3, 5");
 
-        String[] inserted = in.nextLine().split("[\\s,]+");
-        int quarters = Integer.parseInt(inserted[0]);
-        int dimes = Integer.parseInt(inserted[1]);
-        int nickels = Integer.parseInt(inserted[2]);
-        gm.balance += (quarters * 25) + (dimes * 10) + (nickels * 5);
+            String[] inserted = in.nextLine().split("[\\s,]+");
 
-        // System.out.println("BALANCE: $0." + gm.balance);
+            if (inserted.length == 3) {
+                quarters = Integer.parseInt(inserted[0]);
+                dimes = Integer.parseInt(inserted[1]);
+                nickels = Integer.parseInt(inserted[2]);
+            }
+
+            if (quarters >= 0 && dimes >= 0 && nickels >= 0 && inserted.length == 3) {
+                insertion = true;
+                gm.balance += (quarters * 25) + (dimes * 10) + (nickels * 5);
+                break insertingCoins;
+            }
+            System.out.println(">> Invalid input. Please try again.");
+
+        }
+
+        System.out.printf(">> BALANCE: $%.2f\n", gm.balance / 100.00);
 
         System.out.println("---------PRESS [Q] TO EXIT---------");
         boolean exit = false;
@@ -53,7 +71,7 @@ public class Main {
                 System.out.println(">> Would you like a YELLOW gumball?  [Y/N]");
                 String response = in.nextLine();
                 if (response.equalsIgnoreCase("y")) {
-                    gm.balance -= 5;
+                    gm.balance -= 10;
                     System.out.println(
                             "-----------------------------------\nYELLOW GUMBALL DISPENSED\n-----------------------------------");
                     yellowTransaction = true;
