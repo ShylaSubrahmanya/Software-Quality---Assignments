@@ -3,17 +3,16 @@ package Assignment2;
 public class Student {
     protected int age;
     protected Location home;
-    protected boolean taxPaid;
     protected Experience exp;
     protected int income;
+    protected boolean parentResidents;
 
-    public Student(int age, Location home, Experience exp, int income) {
+    public Student(int age, Location home, Experience exp, int income, boolean parentResidents) {
         this.age = age;
         this.income = income;
         this.home = home;
         this.exp = exp;
-
-        taxPaid = false;
+        this.parentResidents = parentResidents;
 
     }
 
@@ -21,8 +20,8 @@ public class Student {
         home = l;
     }
 
-    public void setTax(boolean t) {
-        taxPaid = t;
+    public void setParentsResidency(boolean t) {
+        parentResidents = t;
     }
 
     public void setExperience(Experience e) {
