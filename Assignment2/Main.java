@@ -2,9 +2,9 @@ package Assignment2;
 
 public class Main {
 
-    // 1 = eligible
-    // 0 = not eligible
-    // "Dean for consideration"
+    // "1" = eligible
+    // "0" = not eligible
+    // "Dean for consideration" = send to Dean for approval
     public static void main(String[] args) {
         Student s;
         StudentTester st;
@@ -19,12 +19,10 @@ public class Main {
         Experience fullTime = Experience.FULL_TIME;
         Experience partTime = Experience.PART_TIME;
         Experience volunteer = Experience.VOLUNTEER;
+        Experience unemp = Experience.UNEMPLOYED;
 
         // initialize scholarship
         Scholarship sch = new Scholarship("computer science");
-
-        // // initialize ineligible student
-        // s = new Student(27, invalidPlace, null, 10000, false);
 
         // TEST A: age && residency (lives in CA)
         s = new Student(20, validLocation, partTime, 10000, false);
@@ -34,7 +32,7 @@ public class Main {
         System.out.printf("%-50s %30s\n", t, st.result);
 
         // TEST B: age && residency (parents live in CA)
-        s = new Student(20, invalidPlace, null, 10000, true);
+        s = new Student(20, invalidPlace, unemp, 10000, true);
         st = new StudentTester(sch, s);
         st.verifyStudent();
         t = "[B] valid age && valid residence (parents live in CA)";
@@ -64,7 +62,7 @@ public class Main {
         System.out.printf("%-50s %30s\n", t, st.result);
 
         // TEST F: age && !residency && !dean
-        s = new Student(17, invalidPlace, fullTime, 10000, false);
+        s = new Student(17, invalidDuration, fullTime, 10000, false);
         st = new StudentTester(sch, s);
         st.verifyStudent();
         t = "[F] valid age && invalid residence && ";
